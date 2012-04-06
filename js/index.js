@@ -4,7 +4,7 @@ $(document).ready(function(){
 	});
 
 	$('.main-content').on("click", "#edit-story", function(event){
-		window.location = '/avaz-project/story_home_page_all_tiles.html';
+		window.location = '/avaz-project/story_tile.html';
 	});
 
 

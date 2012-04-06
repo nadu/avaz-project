@@ -26,28 +26,22 @@
 		height:75px;
 		cursor: pointer;
 	}
-	#story-title{
-		text-align:center;
-		font-size:1.6em;
-		margin: 10px auto 0 auto;
-		width: 50%;
-		font-weight:bold;
-	}
+
 	.toolbar{
 		width: 690px;
-		margin: 15px 0 15px 200px;
+		margin: 35px 0 35px 200px;
 		height: 25px;
 		padding: 5px;
 		background-color: #eee;
 	}
 	.toolbar img{
 		float:left;
-		margin-right:30px;
+		margin-right:50px;
 		cursor: pointer;
 	}
 	.toolbar-content{
 		margin: 0 auto;
-		width:555px;
+
 	}
 	.canvas{
 		float:left;
@@ -58,27 +52,53 @@
 		width:150px;
 		height:112px;
 	}
-	#canvas-area{
-		margin-left:0px;
-		xmargin-left:170px;
-		height:280px;
-		width:850px;
-		xwidth:700px;
-		border: 1px solid #bbb;
-		background-color: #f8f8f8;
+	.start-story{
 		float:left;
-		margin-bottom:20px;
-		font-size:1.4em;
-		padding: 10px;
+		margin-left:20px;
+		cursor: pointer;
+		position: relative;
 	}
-	#canvas-area img{
-		width:20px;
-		height:20px;
+	#play-story{
+		position: absolute;
+		top:40px;
+		left:38px;
+		z-index:3;
+		width:70px;
+	}
+	.btn-custom img{
+		position: absolute;
+		left: 49px;
+		top: 6px;
+	}
+	.start-story .big-thumbnail{
+		float:left;
+		width:150px;
+		height:112px;
+		padding-bottom: 20px;
+		opacity: 0.7;
+		-moz-opacity: 0.7;
+		filter:alpha(opacity=7);
+	}
+	#story-tiles{
+		clear:both;
+		margin: 0 auto;
 	}
 	.input-area{
 		float:left;
 		margin:0 0 20px 20px;
 		width:600px;
+	}
+	.input-area label{
+		float: left;
+		width: 140px;
+		padding: 10px 20px 0 80px;
+		text-align: right;
+		font-size:1.4em;
+	}
+
+	.input-area input, .input-area textarea{
+		display: block;
+		width:250px;
 	}
 	#question-mike, #answer-mike, #prompt-mike{
 		float:left;
@@ -111,44 +131,40 @@
 				<a href='/avaz-project/app_home_screen.html'><img src='img/home.png' class='home'/></a>
 				<img src='img/help.png' class='settings'/>
 			</div>
-			<div id='story-title' contenteditable='true'> Story Name </div>
+		
 			<div class='toolbar'>
 				<div class='toolbar-content'>
 					<!--<img src='img/add.png' /> -->
 					<img src='img/add_camera.png' class='add-image'/>
 					<img src='img/add_gallery.png' class='add-image'/>
-					<a href='/avaz-project/story_home_page.html'><img src='img/play.png' /></a>
+					<img src='img/play.png' />
 					<img src='img/save.png' id='save'/>
 					<img src='img/undo.png' />
 					<img src='img/copy.png' id='copy'/>
 					<img src='img/delete.png' id='delete'/>
 					<img src='img/comments.png' id='comments' />
 					<img src='img/tag.png' />
-					<img src='img/off.png' id='off'/>
 				</div>
 			</div>
-			
-			<div class='canvas'>
-				<img src=''/>
-				<div class='input-area'>
-					<textarea class='left' id='question' placeholder="Question.."></textarea>
-					<input type="text" id='question-mike' class='left' x-webkit-speech>
-					<textarea class='left' id='answer' placeholder="Answer.."></textarea>
-					<input type="text" id='answer-mike' class='left' x-webkit-speech>
-					<textarea class='left' id='prompt' placeholder="Prompt.."></textarea>
-					<input type="text" id='prompt-mike' class='left' x-webkit-speech>
-				</div>
-				<div contenteditable='true' id='canvas-area'>
-					Notes:
-				</div>
-				
+			<div class='start-story'>
+				<img class='big-thumbnail' src=''/>
+				<div class='btn-custom ' id='play-story'>Play &nbsp;&nbsp;<img src='img/play.png' /></div>
+				<a href='/avaz-project/story_tile.html'><div class='btn-custom ' id='story-tiles'>Story Tiles</div></a>
+			</div>
+			<div class='input-area'>
+				<label for='story-title'>Story Name </label>
+				<input id='story-title' placeholder='Story Name' x-webkit-speech>
+				<label for='story-desc'>Story Description </label>
+				<textarea  id='story-desc' placeholder="Story Description"></textarea>
+				<label for='story-tags'>Story Tags </label>
+				<input type="text" id='story-tags' placeholder='Story Tags' x-webkit-speech>
+				<label for='students'>Students </label>
+				<input type="text" id='students' placeholder='Students' x-webkit-speech>
 			</div>
 			
 		</div>
-	<div class='main-section-footer'>
-    </div>
 	</div>
-<script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
-<script type="text/javascript" src='js/story_tile.js'></script>
+	<script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+	<script type="text/javascript" src='js/story_home_page.js'></script>
 </body>
 </html>

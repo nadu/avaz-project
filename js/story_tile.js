@@ -51,6 +51,7 @@ $(document).ready(function(){
 		$('#question').val(so.tiles[tileId].question);
 		$('#answer').val(so.tiles[tileId].answer);
 		$('#prompt').val(so.tiles[tileId].prompt);
+		$('#canvas-area').html(so.tiles[tileId].notes);
 	}
 	
 	function autoSave(){
@@ -58,12 +59,14 @@ $(document).ready(function(){
 		so.tiles[currentTileId].question = $('#question').val();
 		so.tiles[currentTileId].answer = $('#answer').val();
 		so.tiles[currentTileId].prompt = $('#prompt').val();
+		so.tiles[currentTileId].notes = $('#canvas-area').html();
 		localStorage.setItem('storyObject', JSON.stringify(so));
 	}
 
 	function changeCurrentTileClass(el){
 		console.log(el);
-		var previousCurrentTile = $('.main-section-footer img.current-tile').get(0);
+		var previousCurrentTile = $('[tile-id='+currentTileId+']');
+		//$('.main-section-footer img.current-tile').get(0);
 		$(previousCurrentTile).removeClass('current-tile');
 		$(el).addClass('current-tile');
 		// set canvas thumbnail
@@ -126,13 +129,20 @@ $(document).ready(function(){
 		//$('[tile-id='+currentTileId+']').setAttribute('tile-id',-99);
 		currentTileId = (currentTileId > 0) ? currentTileId-1 : 1;
 		// check if last tile
-
+	
 		changeCurrentTileClass($('[tile-id='+currentTileId+']'));
 		loadContent(currentTileId);
 		so.deletedTiles.push(deletedTileId);	
 		so.tiles.splice(deletedTileId,1);
 		organizeTiles(so.tiles);
 		console.log(so.tiles);
+	});
+
+	// clear local storage
+	$('.toolbar-content').on('click', '#off', function(){
+		//$('#canvas-area').append("<div style='width:50px; height:20px; border:1px solid #333; background-image:url(img/comments.png) no-repeat'></div>");
+		localStorage.clear();
+		window.location = '/avaz-project/story_tile.html'
 	});
 });
 

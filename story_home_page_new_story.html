@@ -76,7 +76,7 @@
 		$('#story-title').html(so.storyName || 'Story Name');
 		$('.img-wrapper').on("click", "img", function(event){
 			var imgSrc = event.target.getAttribute('src');
-			var tileObject = {imgSrc:'', question:'', answer:'', prompt:'', comments:'', notes:'', tileId:''};
+			var tileObject = {imgSrc:'', question:'', answer:'', prompt:'', comments:'', notes:'Notes: ', tileId:''};
 			console.log(so);
 			if(!$.isEmptyObject(so)){
 				tileObject.imgSrc = imgSrc;
