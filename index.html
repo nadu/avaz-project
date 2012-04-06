@@ -1,57 +1,62 @@
 <!DOCTYPE html>
-<html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<style type="text/css">
+		.link{
+			float:left;
+			width: 100px;
+			height:75px;
+			padding:10px;
+			background-color: #057ebd;
+			text-align:center;
+		}
+		.outer-container{
+			width:600px;
+			float:left;
+		}
+		.outer-container a{
+			float:left;
+			margin:10px;
+			color:white;
+		}
+		body{
+			color:#ddd;
+			font-family: Helvetica;
+		}
+	</style>
 </head>
 <body>
-	<div class="container-fluid">
-	  <div class="row-fluid">
-	    <div class="span3 left-column">
-	      <!--Sidebar content-->
-	      Options/Tools
-	    </div>
-	    <div class="span9 main-column" id='main-column'>
-	      <!--Body content-->
-	      <div class='btn-custom' id='create-new-story'>Create a New Story</div>
-	      <div class='search-wrapper'>
-		    <input type="text" id='search-input' class='left' placeholder="Search Stories">
-		    <div class='btn-custom right' id='search-btn'>Go</div>
-	      </div>
-	      <div class='clear'></div>
-	      <div class='recent-stories'>
-	      	<h2> Recent Stories</h2>
-	      	<!-- template for the recent stories list -->
-	      	<div class='recent-story'>
-	      		<h4>Story #1</h4>
-	      		<img src='http://placehold.it/200x200'/>
-	      		<img src='http://placehold.it/200x200'/>
-	      		<img src='http://placehold.it/200x200'/>
-	      	</div>
-	      	<div class='recent-story'>
-	      		<h4>Story #2</h4>
-	      		<img src='http://placehold.it/200x200'/>
-	      		<img src='http://placehold.it/200x200'/>
-	      		<img src='http://placehold.it/200x200'/>
-	      	</div>
-			<div class='recent-story'>
-	      		<h4>Story #2</h4>
-	      		<img src='http://placehold.it/200x200'/>
-	      		<img src='http://placehold.it/200x200'/>
-	      		<img src='http://placehold.it/200x200'/>
-	      	</div>
-
-
-	      </div>
-	    </div>
-
-	  </div>
+	<div class='outer-container'>
+		<a href='app_home_screen.html'>
+			<div class='link'>
+				App Home Screen
+			</div>
+		</a>
+		<a href='story_home_page_new_story.html'>
+			<div class='link'>
+				Start New Story
+			</div>
+		</a>
+		
+		<a href='story_tile.html'>
+			<div class='link'>
+				Story Tile Page
+			</div>
+		</a>
+		<a href='story_tile_add_comments.html'>
+			<div class='link'>
+				Story Tile Page - Add new comment
+			</div>
+		</a>
+		<a href='story_tile_create.html'>
+			<div class='link'>
+				Story Tile Create Page
+			</div>
+		</a>
+		<a href='story_home_page_all_tiles.html'>
+			<div class='link'>
+				Story Home Page with All Tiles
+			</div>
+		</a>
 	</div>
-
-<script src='js/jquery.js'></script>
-<script src='js/jquery.simplemodal.js'></script>
-<script src='js/handlebars.js'></script>
 </body>
 </html>
-

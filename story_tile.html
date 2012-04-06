@@ -21,7 +21,10 @@
 		background-color: #DDD;
 	}
 	.main-section-footer img{
-		padding: 5px 10px;		
+		margin: 5px 10px;		
+		width:100px;
+		height:75px;
+		cursor: pointer;
 	}
 	#story-title{
 		text-align:center;
@@ -40,6 +43,7 @@
 	.toolbar img{
 		float:left;
 		margin-right:20px;
+		cursor: pointer;
 	}
 	.toolbar-content{
 		margin: 0 auto;
@@ -54,28 +58,42 @@
 		height:112px;
 	}
 	#canvas-area{
-		margin-left:20px;
-		height:340px;
-		width:700px;
+		margin-left:0px;
+		xmargin-left:170px;
+		height:280px;
+		width:870px;
+		xwidth:700px;
 		border: 1px solid #bbb;
-		background-color: #eee;
+		background-color: #f8f8f8;
 		float:left;
 		margin-bottom:20px;
-		font-size:1.2em;
+		font-size:1.4em;
 	}
 	.input-area{
 		float:left;
+		margin:0 0 20px 20px;
+		width:600px;
 	}
-	#question, #answer{
+	#question-mike, #answer-mike, #prompt-mike{
 		float:left;
-		margin-right:10px;
+		margin-right:30px;
+		width:17px;
+		height:25px;
+		border:none;
+		box-shadow:none;
+	}
+	#question, #answer, #prompt{
+		height:40px;
 	}
 	.right-icons{
 		float:right;
-		width:80px;
+		width:65px;
 	}
 	.right-icons img{
-		padding:5px;
+		padding:5px 5px 0 0;
+	}
+	.current-tile{
+		border:1px solid #057ebd;
 	}
 	
 	</style>
@@ -84,38 +102,45 @@
 	<div class='container'>
 		<div class='main-section'>
 			<div class='right-icons'>
-				<img src='img/home.png' />
-				<img src='img/help.png' />
+				<a href='/avaz-project/app_home_screen.html'><img src='img/home.png' class='home'/></a>
+				<img src='img/help.png' class='settings'/>
 			</div>
 			<div id='story-title' contenteditable='true'> Story Name </div>
 			<div class='toolbar'>
 				<div class='toolbar-content'>
-					<img src='img/add.png' />
-					<img src='img/camera.png' />
-					<img src='img/gallery.png' />
+					<!--<img src='img/add.png' /> -->
+					<img src='img/add_camera.png' class='add-image'/>
+					<img src='img/add_gallery.png' class='add-image'/>
 					<img src='img/play.png' />
-					<img src='img/save.png' />
+					<img src='img/save.png' id='save'/>
 					<img src='img/undo.png' />
-					<img src='img/copy.png' />
+					<img src='img/copy.png' id='copy'/>
 					<img src='img/comments.png' />
-					
+					<img src='img/tag.png' />
 				</div>
 			</div>
 			
 			<div class='canvas'>
-				<img src='img/img_in_canvas.png'/>
-				<div contenteditable='true' id='canvas-area'>
-				</div>
+				<img src=''/>
 				<div class='input-area'>
-					<input type="text" id='question' class='left' placeholder="Question.." x-webkit-speech>
-					<input type="text" id='answer' class='left' placeholder="Answer.." x-webkit-speech>
+					<textarea class='left' id='question' placeholder="Question.."></textarea>
+					<input type="text" id='question-mike' class='left' x-webkit-speech>
+					<textarea class='left' id='answer' placeholder="Answer.."></textarea>
+					<input type="text" id='answer-mike' class='left' x-webkit-speech>
+					<textarea class='left' id='prompt' placeholder="Prompt.."></textarea>
+					<input type="text" id='prompt-mike' class='left' x-webkit-speech>
 				</div>
+				<div contenteditable='true' id='canvas-area'>
+					Notes:
+				</div>
+				
 			</div>
 			
 		</div>
 	<div class='main-section-footer'>
-		<img src='img/img_thumbnail_tile.png'/>
     </div>
 	</div>
+<script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script type="text/javascript" src='js/story_tile.js'></script>
 </body>
 </html>

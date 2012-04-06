@@ -18,10 +18,12 @@
 		position: relative;
 
 	}
-	#story-name{
+	#story-title{
 		text-align:center;
-		margin-top:40px;
-		font-size: 1.6em;
+		font-size:1.4em;
+		margin: 40px auto 0 auto;
+		width: 50%;
+		font-weight:bold;
 	}
 	.main-section h4{
 		font-weight:normal;
@@ -29,22 +31,68 @@
 		margin:30px auto;
 	}
 	.main-section img{
-		padding: 30px;
-
+		padding: 5px;
+		width:100px;
+		height:75px;
+		float:left;
+		cursor: pointer;
+	}
+	.img-wrapper{
+		padding:0 20px;
 	}
 	</style>
 </head>
 <body>
 	<div class='container'>
-		<div id='story-name'> Story Name </div>
+		<div id='story-title' contenteditable='true'> Untitled Story</div>
 		<div class='main-section'>
-			<h4>Start your Story by clicking on the Camera or the Photo Gallery</h4>
-			<div>
-				<img src='img/camera.png' />
-				<img src='img/gallery.png' />
+			<h4>Start your Story by choosing one of the images</h4>
+			<div class='img-wrapper'>
+				<img src='mock_images/indian_restaurant.jpg' />
+				<img src='mock_images/dosa.jpg' />
+				<img src='mock_images/idli.jpg' />
+				<img src='mock_images/poori.jpg' />
+				<img src='mock_images/panipuri.jpg' />
+				<img src='mock_images/potatoes.jpg' />
+				<img src='mock_images/mixed_vegetables.jpg' />
+				<img src='mock_images/bhindi.jpg' />
+				<img src='mock_images/farmer.jpg' />
+				<img src='mock_images/milkman.png' />
+				<img src='mock_images/carpenter.jpg' />
+				<img src='mock_images/policeman.jpg' />
+				<img src='mock_images/vegetable_vendor.jpg' />
+				<img src='mock_images/playground.jpg' />
+				<img src='mock_images/schoolbus.jpg' />
 			</div>
 		</div>
 
 	</div>
+<script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.img-wrapper').on("click", "img", function(event){
+			var so = localStorage.getItem('storyObject');
+			var imgSrc = event.target.getAttribute('src');
+			var tileObject = {imgSrc:'', question:'', answer:'', prompt:'', comments:'', notes:'', tileId:''};
+			console.log(so);
+			if(so){
+				so = JSON.parse(so);
+				tileObject.imgSrc = imgSrc;
+				tileObject.tileId = so.tiles.length;
+				so.currentTileId = so.tiles.length;
+				so.tiles.push(tileObject);
+				localStorage.setItem('storyObject', JSON.stringify(so));
+			}else{
+				so = {tiles:[], currentTileId:0};
+				tileObject.imgSrc = imgSrc;
+				tileObject.tileId = 0;
+				so.tiles.push(tileObject);
+				console.log(so);
+				localStorage.setItem('storyObject', JSON.stringify(so));
+			}
+			window.location = '/avaz-project/story_tile.html';
+		});
+})
+</script>
 </body>
 </html>

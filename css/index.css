@@ -46,9 +46,17 @@
 	width:100%;
 	background-color: #DDD;
 }
+.side-section-footer img{
+	float:left;
+	width:25px;
+	height:25px;
+	padding:5px;
+}
 .side-section-content span{
 	display: block;
-	font-size:1.2em;
+	font-size:1.4em;
+	width:100px;
+	padding-top:2px;
 }
 
 /* ---------- MAIN SECTION & CONTENTS----------------*/
@@ -80,11 +88,11 @@
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.13);
     -webkit-font-smoothing: antialiased;
     -webkit-border-radius: 3px;
-    width:125px;
+    width:135px;
     height:25px;
     padding-top:10px;
     text-align:center;
-    font-size:1.2em;
+    font-size:1.4em;
     cursor: pointer;
 }
 
@@ -111,6 +119,7 @@
 .recent-stories h3,
 .favorite-stories h3 {
 	display: inline-block;
+	font-weight:bold;
 }
 
 .recent-story, .favorite-story{
@@ -147,11 +156,14 @@
 	padding: 2px;
 	background-color: white;
 	border: 1px solid #BBB;
+	width:100px;
+	height:75px;
 }
 
 img.thumbnail-1{
 	z-index: 2;
 	left: 0px;
+	
 }
 img.thumbnail-2{
 	z-index: -2;

@@ -1,0 +1,39 @@
+<div id='anim' style="width:100px;height:100px;border:1px solid black">HELLO WORLD</div>
+<div style="width:100px;height:100px;border:1px solid black; bottom:100px;">HELLO WORLD</div>
+<script src="../src/zepto.js"></script>
+<script src="../src/event.js"></script>
+<script src="../src/fx.js"></script>
+
+<script>
+  $('#anim').anim({ rotate: '720deg', opacity: .5 }, 2, 'ease-out');
+  var anim = document.getElementById("anim");
+ 
+  anim.addEventListener('touchove', function(event){
+  	//event.preventDefault();
+  	if(event.touches.length == 1){
+  		var touch = event.touches[0],
+  		style = touch.target.style;	
+  		style.position = "absolute";
+  		style.left = touch.pageX+"px";
+  		style.top = touch.pageY+"px";
+  	}
+  	
+  	//alert("Touch X: "+ touch.pageX + ", Y: "+touch.pageY);
+  	//alert("Touch X: "+ touch.pageX + ", Y: "+touch.pageY);
+  }, false);
+  $('#anim').mouseup(function(){alert("nadu")});
+/*
+	anim.addEventListener('touchstart', function(event){
+  	//event.preventDefault();
+  	var touch = event.touches[0];
+  	alert("Touch X: "+ touch.pageX + ", Y: "+touch.pageY);
+  	//alert("Touch X: "+ touch.pageX + ", Y: "+touch.pageY);
+  }, false);
+
+  $(anim).bind('touchmove touchstart', function(event){
+  	var touch = event.touches[0];
+  	alert("Touch X: "+ touch.pageX + ", Y: "+touch.pageY);
+  })
+*/
+
+</script>
