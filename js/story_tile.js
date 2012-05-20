@@ -1,30 +1,22 @@
-function forEach(arr, action){
-	var len = arr.length,
-	i=0;
-	for(;i<len;i++){
-		action(arr[i]);
-	}
-}
-
 $(document).ready(function(){
 	var imgSrcArray = [];
 	var so = localStorage.getItem('storyObject') || JSON.stringify({});
 	var currentTileId;
 	so = JSON.parse(so);
 	imgSrcArray = so.tiles || [];
-	currentTileId = parseInt(so.currentTileId,10);
+	var currentTileId = parseInt(so.currentTileId,10);
 
 	// set story name from local storage
 	$('#story-title').html(so.storyName);
 
 	// create thumbnail images for footer from storyobject
-	forEach(imgSrcArray, createFooterThumbnails);
+	$.each(imgSrcArray, createFooterThumbnails);
 
-	function createFooterThumbnails(i){
+	function createFooterThumbnails(i,value){
 		var img = document.createElement('img');
-		img.src = i.imgSrc;
-		img.setAttribute('tile-id', i.tileId);
-		if(i.tileId == currentTileId){
+		img.src = value.imgSrc;
+		img.setAttribute('tile-id', value.tileId);
+		if(value.tileId == currentTileId){
 			img.className += ' current-tile';
 			loadContent(currentTileId);
 			changeCurrentTileClass(img);
@@ -32,6 +24,8 @@ $(document).ready(function(){
 		$('.main-section-footer').append(img);
 		// add click handler to footer thumbnails
 		$(img).click(function(e){
+			// store previous tile id
+			var prevTileId = currentTileId;
 			// save the changes that were made to questions, answers, notes
 			autoSave();
 			// change the current tile in local storage
@@ -63,11 +57,11 @@ $(document).ready(function(){
 		localStorage.setItem('storyObject', JSON.stringify(so));
 	}
 
-	function changeCurrentTileClass(el){
-		console.log(el);
-		var previousCurrentTile = $('[tile-id='+currentTileId+']');
-		//$('.main-section-footer img.current-tile').get(0);
-		$(previousCurrentTile).removeClass('current-tile');
+	function changeCurrentTileClass(el, prevTileId){
+		// remove the class from previous current tile
+		$.each($(".main-section-footer img"), function(i, val){
+			$(val).removeClass('current-tile');
+		});
 		$(el).addClass('current-tile');
 		// set canvas thumbnail
 		$('.canvas img').attr('src',$(el).attr('src'));	
@@ -83,7 +77,7 @@ $(document).ready(function(){
 	// save
 	$('.toolbar-content').on('click', '#save', function(){
 		// empty the tiles in the deletedTiles list
-
+ 		$('.loading-icon').show();
 		console.log("organized ", so.tiles);
 		// update the current tile's question, answer, prompt and notes
 		console.log(currentTileId);
@@ -91,12 +85,14 @@ $(document).ready(function(){
 		so.storyName = $('#story-title').html();
 		localStorage.setItem('storyObject', JSON.stringify(so));
 		console.log(so.tiles);
+		setTimeout(function(){ $('.loading-icon').hide();}, 500);
 	});
 
 	function organizeTiles(tiles){
 		var count = 0;
 		var flag = false;
-		forEach(tiles, function(tile){
+		console.log(tiles); 
+		$.each(tiles, function(i,tile){
 			if(!flag && currentTileId == tile.tileId){
 				currentTileId = count;
 				flag = true;
@@ -117,7 +113,7 @@ $(document).ready(function(){
 		currentTileId = newTile.tileId;
 		localStorage.setItem('storyObject', JSON.stringify(so));
 		console.log(so.tiles);
-		createFooterThumbnails(so.tiles[currentTileId]);		
+		createFooterThumbnails(0,so.tiles[currentTileId]);		
 	});
 
 	// delete tile
@@ -142,7 +138,7 @@ $(document).ready(function(){
 	$('.toolbar-content').on('click', '#off', function(){
 		//$('#canvas-area').append("<div style='width:50px; height:20px; border:1px solid #333; background-image:url(img/comments.png) no-repeat'></div>");
 		localStorage.clear();
-		window.location = '/avaz-project/story_tile.html'
+		window.location = '/avaz-project/story_tile.html';
 	});
 });
 

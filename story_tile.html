@@ -11,7 +11,7 @@
 	}
 	.main-section{
 		width:100%;
-		height:100%;
+		height:auto;
 	}
 	.main-section-footer{
 		bottom:0px;
@@ -19,6 +19,7 @@
 		height: 13.385826771653545% ;/*85px/635*/;
 		width:100%;
 		background-color: #DDD;
+		border:none;
 	}
 	.main-section-footer img{
 		margin: 5px 10px;		
@@ -77,8 +78,8 @@
 	}
 	.input-area{
 		float:left;
-		margin:0 0 20px 20px;
-		width:600px;
+		margin:0 0 20px 40px;
+		width:700px;
 	}
 	#question-mike, #answer-mike, #prompt-mike{
 		float:left;
@@ -90,14 +91,15 @@
 	}
 	#question, #answer, #prompt{
 		height:40px;
+		width:285px;
 	}
-	.right-icons{
+	/*.right-icons{
 		float:right;
 		width:65px;
 	}
 	.right-icons img{
 		padding:5px 5px 0 0;
-	}
+	}*/
 	.current-tile{
 		border:1px solid #057ebd;
 	}
@@ -106,11 +108,13 @@
 </head>
 <body>
 	<div class='container'>
-		<div class='main-section'>
-			<div class='right-icons'>
+		<div class='right-icons'>
 				<a href='/avaz-project/app_home_screen.html'><img src='img/home.png' class='home'/></a>
 				<img src='img/help.png' class='settings'/>
-			</div>
+		</div>
+		<div class='main-section'>
+			<div class='loading-icon'><img src='img/loading.gif'/></div>
+			
 			<div id='story-title' contenteditable='true'> Story Name </div>
 			<div class='toolbar'>
 				<div class='toolbar-content'>

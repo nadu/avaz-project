@@ -1,11 +1,18 @@
 $(document).ready(function(){
 	$('.main-content').on("click", "#create-new-story", function(event){
-		window.location = '/avaz-project/story_home_page_new_story.html';
+		window.location = '/avaz-project/story_tile.html';
 	});
 
 	$('.main-content').on("click", "#edit-story", function(event){
 		window.location = '/avaz-project/story_tile.html';
 	});
 
+	$('.main-content').on("click", "#play-story", function(event){
+		window.location = '/avaz-project/story_home_page.html';
+	});
+
+	$('.container').on("click", ".j-play-story", function(event){
+		window.location = '/avaz-project/story_home_page.html';
+	});
 
 })
