@@ -19,24 +19,35 @@ $(document).ready(function(){
 	so = JSON.parse(so);
   var selectedStudents = so.selectedStudents || [];
   console.log(so); 
-	if(!$.isEmptyObject(so)){
-		$('.big-thumbnail').attr('src', so.tiles[0].imgSrc);
-	}
-  // show selected students if they exist
-  if(selectedStudents.length){
-    $.each(selectedStudents, function(index, val){
-      addToSelectedStudents(val, true);
-    })
-  }
-  function addToSelectedStudents(student,cacheFlag){
 
+  function setupStoryDetails(){
+    // thumbnail
+    if(!$.isEmptyObject(so)){
+      $('.big-thumbnail').attr('src', so.tiles[0].imgSrc);
+      // story title
+      if(so.storyName != 'Story Name')
+        $('#story-title').val(so.storyName);
+      if(so.storyDescription)
+        $('#story-desc').val(so.storyDesc);
+      if(so.storyTags)
+        $('#story-tags').val(so.storyTags);
+    }
+    // show selected students if they exist
+    if(selectedStudents.length){
+      $.each(selectedStudents, function(index, val){
+        addToSelectedStudents(val, true);
+      });
+    }
+  }
+  setupStoryDetails();
+	
+  function addToSelectedStudents(student,cacheFlag){
     if(cacheFlag !== true){
       // add to the array - push to local storage when save is clicked
       selectedStudents.push(student);
     }
     // TODO check if already added to DOM?
     // if yes then don't add to the container
-
     // insert the image into the screen
     $('.selected-students-container').append("<div class='selected-student' style='background:url("+student.img+") no-repeat center center'> <span>"+student.name+"</span></div>");
   }
@@ -48,15 +59,27 @@ $(document).ready(function(){
     function(student){
 	   	console.log(student);
       // insert the image into the screen
-      // $('.selected-students-container').append("<div class='selected-student'><img src='"+student.img+"' /><span>"+student.name+"</span></div>");
       addToSelectedStudents(student);
       $('#students').val('');
   });
-  $('.toolbar-content').on('click', '#save', function(){
-    $('.loading-icon').show();
+  function save(){
+    so.storyName =  $('#story-title').val();
+    so.storyTags =  $('#story-tags').val();
+    so.storyDesc =  $('#story-desc').val();
     so.selectedStudents = selectedStudents;
     localStorage.setItem('storyObject', JSON.stringify(so));    
-    setTimeout(function(){ $('.loading-icon').hide();}, 500);
+  }
+
+  $('.start-story').on('click', '#play-story', function(){
+    $('.loading-icon').show();
+    so.currentTileId = 0;
+    so.selectedStudent = {};
+    save();
+    setTimeout(function(){ 
+      $('.loading-icon').hide();
+      window.location = '/avaz-project/story_play_initial_state.html';
+    }, 
+    500);
   });
 
   // clear local storage

@@ -58,6 +58,8 @@
 	width:100px;
 	padding-top:2px;
 	word-wrap: break-word;
+	height:30px;
+	overflow: hidden;
 }
 
 /* ---------- MAIN SECTION & CONTENTS----------------*/
@@ -132,7 +134,6 @@
 .recent-story h4, .favorite-story h4{
 	margin:10px 0;
 	float: left;
-	overflow: hidden;
 	font-weight:normal;
 }
 .recent-story span, .favorite-story span{
@@ -194,6 +195,8 @@ img.thumbnail-3{
 }
 .right-icons img{
  	padding:5px 5px 0 0;
+ 	width:21px;
+ 	height:20px;
  }
 
 .loading-icon{

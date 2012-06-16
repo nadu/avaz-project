@@ -15,7 +15,7 @@
 		.right-icons{
 			width:100px;
 		}
-		.question-img{
+		#question-img{
 			width:640px;
 			height:480px;
 			top:50%;
@@ -24,6 +24,10 @@
 			border: 1px solid #999;
 			float: none;
 			position: absolute;
+		}
+		#question-img img{
+			width:640px;
+			height:480px;
 		}
 		.main-section-footer{
 			bottom:0px;
@@ -72,6 +76,7 @@
 			margin:15px auto;
 			width:78%;
 			font-size:1.8em;
+			text-align:center;
 		}
 	</style>
 </head>
@@ -79,7 +84,7 @@
 	<div class='container'>
 		<div class='right-icons'>
 			<a href='/avaz-project/select_student_to_answer.html'>
-				<img src='img/users.png' class='home'/>
+				<img src='img/users.png' id='users'/>
 			</a>
 			<a href='/avaz-project/app_home_screen.html'>
 				<img src='img/home.png' class='home'/>
@@ -87,8 +92,10 @@
 			<img src='img/help.png' class='settings'/>
 		</div>
 		<div class='main-section'>
-			<h3 class='question-text'>Question text goes here</h3>
-			<div class='question-img'></div>
+			<h3 class='question-text' id='question-text'>Question text goes here</h3>
+			<div id='question-img'>
+				<img src="">
+			</div>
 			<div class='main-section-footer'>
 				<img src='img/answer_tag.png' class='answer-tag'/>
     	</div>

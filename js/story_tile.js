@@ -24,8 +24,6 @@ $(document).ready(function(){
 		$('.main-section-footer').append(img);
 		// add click handler to footer thumbnails
 		$(img).click(function(e){
-			// store previous tile id
-			var prevTileId = currentTileId;
 			// save the changes that were made to questions, answers, notes
 			autoSave();
 			// change the current tile in local storage

@@ -1,22 +1,21 @@
 var AVAZ = {};
 AVAZ.students = [
-				{name:'Akansha', img:'mock_images/students/akansha.jpg'}, 
-				{name:'Gopal', img:'mock_images/students/gopal.jpg'}, 
-				{name:'Manohar', img:'mock_images/students/manohar.jpg'},
-				{name:'Amit', img:'mock_images/students/amit.jpg'}, 
-				{name:'Kumar', img:'mock_images/students/kumar.jpg'}, 
-				{name:'Neha', img:'mock_images/students/neha.jpg'}, 
-				{name:'Abhinav', img:'mock_images/students/abhinav.jpg'}, 
-				{name:'Chirag', img:'mock_images/students/chirag.jpg'}, 
-				{name:'Narayan', img:'mock_images/students/nadu.jpg'}, 
-				{name:'Mayur', img:'mock_images/students/mayur.jpg'}, 
-				{name:'Prateek', img:'mock_images/students/prateek.jpg'}, 
-				{name:'Hasneen', img:'mock_images/students/hasneen.jpg'}, 
-				{name:'Sneha', img:'mock_images/students/sneha.jpg'}, 
-				{name:'Gurpreet', img:'mock_images/students/student.jpg'}, 
-				{name:'Ramesh', img:'mock_images/students/ramesh.jpg'}, 
-				{name:'Vikram', img:'mock_images/students/vikram.jpg'}, 
-				{name:'Gurpreet', img:'mock_images/students/student.jpg'}
+				{name:'Akansha', img:'mock_images/students/akansha.jpg', _id:1}, 
+				{name:'Gopal', img:'mock_images/students/gopal.jpg',  _id:2}, 
+				{name:'Manohar', img:'mock_images/students/manohar.jpg', _id:3},
+				{name:'Amit', img:'mock_images/students/amit.jpg', _id:4}, 
+				{name:'Kumar', img:'mock_images/students/kumar.jpg', _id:5}, 
+				{name:'Neha', img:'mock_images/students/neha.jpg', _id:6}, 
+				{name:'Abhinav', img:'mock_images/students/abhinav.jpg', _id:7}, 
+				{name:'Chirag', img:'mock_images/students/chirag.jpg', _id:8}, 
+				{name:'Narayan', img:'mock_images/students/nadu.jpg', _id:9}, 
+				{name:'Mayur', img:'mock_images/students/mayur.jpg', _id:10}, 
+				{name:'Prateek', img:'mock_images/students/prateek.jpg', _id:11}, 
+				{name:'Hasneen', img:'mock_images/students/hasneen.jpg', _id:12}, 
+				{name:'Sneha', img:'mock_images/students/sneha.jpg', _id:13}, 
+				{name:'Gurpreet', img:'mock_images/students/student.jpg', _id:14}, 
+				{name:'Ramesh', img:'mock_images/students/ramesh.jpg', _id:15}, 
+				{name:'Vikram', img:'mock_images/students/vikram.jpg', _id:16}
 			]
 
 function forEach(arr, action){
